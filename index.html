@@ -10,17 +10,30 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         :root {
             --main-orange: rgb(255, 102, 0);
+            --main-bg: #ffe1c8;
+            --text-color: #333;
+            --max-width: 1150px;
         }
+
+        html {
+            font-size: 16px;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background-color: #ffe1c8;
+            background-color: var(--main-bg);
+            color: var(--text-color);
+            line-height: 1.6;
         }
 
         .content {
-            margin-top: 40px;
+            margin: 0 auto;
             padding: 20px;
+            max-width: var(--max-width);
+            margin-left: 340px;
         }
 
         .section {
@@ -33,14 +46,13 @@
 
         .home-title {
             color: var(--main-orange);
-            font-size: 40px;
+            font-size: clamp(2.4rem, 4vw, 3.5rem);
             margin-bottom: 20px;
             font-family: 'Comic Sans MS', 'Trebuchet MS', cursive, sans-serif;
         }
 
         #team .home-title,
         #journey .home-title {
-            font-size: 52px;
             text-align: center;
             margin-bottom: 24px;
         }
@@ -49,41 +61,44 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 40px;
+            gap: 32px;
             margin-top: 60px;
+            flex-wrap: wrap;
         }
 
         .home-text {
-            flex: 1;
-            text-align: center;
+            flex: 1 1 360px;
+            text-align: left;
+            min-width: 280px;
         }
 
         .ican-title {
-            font-size: 80px;
+            font-size: clamp(3rem, 8vw, 5rem);
             font-weight: bold;
             color: var(--main-orange);
             font-family: 'Comic Sans MS', 'Trebuchet MS', cursive, sans-serif;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .home-image {
-            flex: 1;
+            flex: 1 1 320px;
             text-align: center;
+            min-width: 260px;
         }
 
         .home-image img {
-            max-width: 62.5%;
-            width: 62.5%;
+            width: 100%;
+            max-width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 12px;
         }
 
         .ican-description {
-            font-size: 16px;
-            color: #333;
+            font-size: 1rem;
+            color: var(--text-color);
             margin-top: 20px;
-            line-height: 1.6;
+            line-height: 1.75;
         }
 
         .journey-list {
@@ -102,16 +117,15 @@
         .journey-item img {
             width: 100%;
             height: auto;
-            border-radius: 0;
+            border-radius: 12px;
             margin-bottom: 14px;
             display: block;
         }
 
         .journey-item p {
             margin: 0;
-            min-height: 48px;
-            color: #333;
-            font-size: 14px;
+            color: var(--text-color);
+            font-size: 1rem;
             line-height: 1.6;
         }
 
@@ -125,39 +139,69 @@
         .team-card {
             background-color: #fff7f0;
             border: 2px solid var(--main-orange);
-            border-radius: 10px;
-            padding: 16px;
+            border-radius: 12px;
+            padding: 18px;
             text-align: center;
         }
 
         .team-card img {
-            width: 45%;
+            width: 55%;
+            max-width: 200px;
             height: auto;
-            border-radius: 8px;
-            margin: 0 auto 12px;
+            border-radius: 12px;
+            margin: 0 auto 16px;
             display: block;
         }
 
         .team-card h2 {
             color: var(--main-orange);
-            font-size: 26px;
-            margin-bottom: 8px;
+            font-size: 1.75rem;
+            margin-bottom: 10px;
             font-family: 'Comic Sans MS', 'Trebuchet MS', cursive, sans-serif;
         }
 
         .team-card p {
-            color: #333;
-            font-size: 14px;
+            color: var(--text-color);
+            font-size: 0.98rem;
             margin: 0;
         }
 
         #journey > p {
-            font-size: 18px;
+            font-size: 1rem;
             text-align: center;
-            color: #333;
+            color: var(--text-color);
             max-width: 820px;
             margin: 0 auto 24px;
-            line-height: 1.7;
+            line-height: 1.75;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: sticky;
+            top: 0;
+            z-index: 1100;
+            background-color: #fff;
+            padding: 12px 16px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .mobile-nav button {
+            background-color: var(--main-orange);
+            color: white;
+            border: none;
+            border-radius: 999px;
+            padding: 10px 16px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .mobile-nav button:hover {
+            transform: translateY(-1px);
+            background-color: rgb(230, 90, 0);
         }
 
         .sidebar-container {
@@ -174,7 +218,7 @@
         .sidebar-tab {
             width: 20px;
             height: 100vh;
-            background-color: rgb(255, 102, 0);
+            background-color: var(--main-orange);
             border-radius: 0 10px 10px 0;
             cursor: pointer;
         }
@@ -185,7 +229,7 @@
             left: 0;
             height: 100vh;
             width: 320px;
-            background-color: rgb(255, 102, 0);
+            background-color: var(--main-orange);
             padding: 40px 24px;
             border-radius: 0 0 10px 0;
             opacity: 0;
@@ -204,7 +248,7 @@
             color: rgb(255, 212, 170);
             font-size: 18px;
             margin-bottom: 15px;
-            border-bottom: 2px rgb(255, 212, 170);
+            border-bottom: 2px solid rgb(255, 212, 170);
             padding-bottom: 10px;
         }
 
@@ -225,6 +269,61 @@
         .sidebar-subsection a:hover {
             padding-left: 20px;
         }
+
+        @media (max-width: 900px) {
+            .sidebar-container {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: flex;
+            }
+
+            .content {
+                margin-left: 0;
+                padding: 16px;
+                margin-top: 0;
+            }
+
+            .home-container {
+                margin-top: 30px;
+            }
+
+            .home-text {
+                text-align: center;
+            }
+
+            .team-card img {
+                width: 75%;
+            }
+
+            #journey > p,
+            .ican-description,
+            .team-card p,
+            .journey-item p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .home-title,
+            .team-card h2 {
+                font-size: clamp(1.8rem, 7vw, 2.4rem);
+            }
+
+            .mobile-nav button {
+                flex: 1 1 120px;
+                padding: 10px 12px;
+            }
+
+            .home-container {
+                gap: 18px;
+            }
+
+            .content {
+                padding: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -244,6 +343,12 @@
             </div>
         </nav>
     </div>
+
+    <nav class="mobile-nav">
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('team')">The Team</button>
+        <button onclick="showSection('journey')">Our Journey</button>
+    </nav>
 
     <div class="content">
         <div id="home" class="section active">
