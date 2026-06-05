@@ -216,11 +216,33 @@
         }
 
         .sidebar-tab {
-            width: 20px;
+            width: 54px;
+            min-width: 54px;
             height: 100vh;
             background-color: var(--main-orange);
-            border-radius: 0 10px 10px 0;
+            border-radius: 0 12px 12px 0;
             cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .sidebar-tab::after {
+            content: "MENU";
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 0.18em;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            white-space: nowrap;
+        }
+
+        .sidebar-tab:hover {
+            background-color: rgb(230, 90, 0);
+            transform: translateX(1px);
         }
 
         .sidebar {
@@ -238,10 +260,20 @@
             transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
         }
 
+        .sidebar.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
         .sidebar-container:hover .sidebar {
             opacity: 1;
             visibility: visible;
             transform: translateX(0);
+        }
+
+        .sidebar-tab.active {
+            background-color: rgb(230, 90, 0);
         }
 
         .sidebar h2 {
@@ -271,12 +303,12 @@
         }
 
         @media (max-width: 900px) {
-            .sidebar-container {
-                display: none;
-            }
-
             .mobile-nav {
                 display: flex;
+            }
+
+            .sidebar {
+                width: 260px;
             }
 
             .content {
@@ -328,9 +360,9 @@
 </head>
 <body>
     <div class="sidebar-container">
-        <div class="sidebar-tab"></div>
+        <div class="sidebar-tab" onclick="toggleSidebar()"></div>
 
-        <nav class="sidebar">
+        <nav class="sidebar" id="sidebarNav">
             <div class="sidebar-subsection">
                 <a href="#" onclick="showSection('home')">Home</a>
             </div>
@@ -392,6 +424,14 @@
     </div>
 
     <script>
+        const sidebar = document.getElementById('sidebarNav');
+        const sidebarTab = document.querySelector('.sidebar-tab');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('open');
+            sidebarTab.classList.toggle('active');
+        }
+
         function showSection(sectionId) {
             // Hide all sections
             const sections = document.querySelectorAll('.section');
@@ -399,6 +439,10 @@
 
             // Show selected section
             document.getElementById(sectionId).classList.add('active');
+
+            // Close sidebar on mobile after navigation
+            sidebar.classList.remove('open');
+            sidebarTab.classList.remove('active');
         }
     </script>
 </body>
