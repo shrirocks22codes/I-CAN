@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I CAN</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -12,9 +14,9 @@
         }
 
         :root {
-            --main-orange: rgb(255, 102, 0);
-            --main-bg: #ffe1c8;
-            --text-color: #333;
+            --main-orange: #d47d0b;
+            --main-bg: #faf0e1;
+            --text-color: #0d0f0e;
             --max-width: 1150px;
         }
 
@@ -23,17 +25,32 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Quicksand', sans-serif;
             background-color: var(--main-bg);
             color: var(--text-color);
             line-height: 1.6;
+            padding-top: 60px;
         }
 
         .content {
             margin: 0 auto;
             padding: 20px;
             max-width: var(--max-width);
-            margin-left: 340px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: margin-left 0.3s ease;
+        }
+
+        .content.sidebar-open {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #home {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .section {
@@ -48,7 +65,8 @@
             color: var(--main-orange);
             font-size: clamp(2.4rem, 4vw, 3.5rem);
             margin-bottom: 20px;
-            font-family: 'Comic Sans MS', 'Trebuchet MS', cursive, sans-serif;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
         }
 
         #team .home-title,
@@ -60,15 +78,16 @@
         .home-container {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             gap: 32px;
             margin-top: 60px;
             flex-wrap: wrap;
+            max-width: 100%;
         }
 
         .home-text {
             flex: 1 1 360px;
-            text-align: left;
+            text-align: center;
             min-width: 280px;
         }
 
@@ -76,9 +95,9 @@
             font-size: clamp(3rem, 8vw, 5rem);
             font-weight: bold;
             color: var(--main-orange);
-            font-family: 'Comic Sans MS', 'Trebuchet MS', cursive, sans-serif;
+            font-family: 'Quicksand', sans-serif;
             letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 5px 5px 0.1px rgba(0, 0, 0, 0.1);
         }
 
         .home-image {
@@ -95,10 +114,11 @@
         }
 
         .ican-description {
-            font-size: 1rem;
+            font-size: 1.25rem;
             color: var(--text-color);
             margin-top: 20px;
             line-height: 1.75;
+            text-shadow: 2px 2px 0.1px rgba(0, 0, 0, 0.1);
         }
 
         .journey-list {
@@ -136,6 +156,102 @@
             margin-top: 20px;
         }
 
+        .hero-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 40px auto;
+            display: block;
+        }
+
+        .goals-section {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .goals-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+            align-items: center;
+        }
+
+        .goal-card {
+            text-align: center;
+            padding: 0;
+        }
+
+        .goal-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 0;
+        }
+
+        .goal-card h3 {
+            display: none;
+        }
+
+        .goal-card p {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .goals-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-footer {
+            background-color: var(--main-orange);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: static;
+            margin: 60px 0 0 0;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+
+        .contact-footer p {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .contact-footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 16px;
+            font-weight: 600;
+            transition: opacity 0.2s ease;
+        }
+
+        .contact-footer a:hover {
+            opacity: 0.8;
+        }
+
+        .social-links {
+            margin-top: 12px;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--main-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 180px;
+        }
+
         .team-card {
             background-color: #fff7f0;
             border: 2px solid var(--main-orange);
@@ -157,7 +273,7 @@
             color: var(--main-orange);
             font-size: 1.75rem;
             margin-bottom: 10px;
-            font-family: 'Comic Sans MS', 'Trebuchet MS', cursive, sans-serif;
+            font-family: 'Quicksand', sans-serif;
         }
 
         .team-card p {
@@ -208,68 +324,68 @@
             position: fixed;
             top: 0;
             left: 0;
-            height: 100vh;
+            width: 100%;
+            height: 60px;
             z-index: 1000;
             display: flex;
-            align-items: flex-start;
-            gap: 2px;
+            align-items: center;
+            background-color: var(--main-orange);
         }
 
         .sidebar-tab {
-            width: 54px;
-            min-width: 54px;
-            height: 100vh;
+            width: 60px;
+            min-width: 60px;
+            height: 60px;
             background-color: var(--main-orange);
-            border-radius: 0 12px 12px 0;
+            border-radius: 0;
             cursor: pointer;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background-color 0.2s ease, transform 0.2s ease;
+            transition: background-color 0.2s ease;
         }
 
         .sidebar-tab::after {
-            content: "MENU";
+            content: "☰";
             color: white;
-            font-size: 0.75rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            letter-spacing: 0.18em;
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
+            writing-mode: horizontal-tb;
+            transform: none;
             white-space: nowrap;
         }
 
         .sidebar-tab:hover {
             background-color: rgb(230, 90, 0);
-            transform: translateX(1px);
         }
 
         .sidebar {
             position: fixed;
             top: 0;
             left: 0;
-            height: 100vh;
-            width: 320px;
+            width: 100%;
+            height: auto;
             background-color: var(--main-orange);
-            padding: 40px 24px;
-            border-radius: 0 0 10px 0;
+            padding: 16px 24px;
+            border-radius: 0;
             opacity: 0;
             visibility: hidden;
-            transform: translateX(-300px);
+            transform: translateY(-100%);
             transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 999;
         }
 
         .sidebar.open {
             opacity: 1;
             visibility: visible;
-            transform: translateX(0);
+            transform: translateY(0);
         }
 
         .sidebar-container:hover .sidebar {
             opacity: 1;
             visibility: visible;
-            transform: translateX(0);
+            transform: translateY(60px);
         }
 
         .sidebar-tab.active {
@@ -277,29 +393,31 @@
         }
 
         .sidebar h2 {
-            color: rgb(255, 212, 170);
-            font-size: 18px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid rgb(255, 212, 170);
-            padding-bottom: 10px;
+            color: white;
+            font-size: 1rem;
+            margin-right: 30px;
+            border-bottom: none;
+            padding-bottom: 0;
+            display: inline-block;
         }
 
         .sidebar-subsection {
-            margin-bottom: 12px;
+            margin-bottom: 0;
+            display: inline-block;
+            margin-right: 20px;
         }
 
         .sidebar-subsection a {
             color: white;
             text-decoration: none;
-            font-size: 14px;
-            display: block;
-            padding: 8px 0;
-            padding-left: 15px;
-            transition: padding-left 0.2s ease;
+            font-size: 1rem;
+            display: inline-block;
+            padding: 0;
+            transition: opacity 0.2s ease;
         }
 
         .sidebar-subsection a:hover {
-            padding-left: 20px;
+            opacity: 0.8;
         }
 
         @media (max-width: 900px) {
@@ -366,7 +484,6 @@
             <div class="sidebar-subsection">
                 <a href="#" onclick="showSection('home')">Home</a>
             </div>
-            <h2>About Us</h2>
             <div class="sidebar-subsection">
                 <a href="#" onclick="showSection('team')">The Team</a>
             </div>
@@ -384,6 +501,8 @@
 
     <div class="content">
         <div id="home" class="section active">
+            <img src="Prisha and Shrihan.jpeg" alt="Prisha and Shrihan" class="hero-image">
+            
             <div class="home-container">
                 <div class="home-text">
                     <div class="ican-title">I. C.A.N.</div>
@@ -391,6 +510,21 @@
                 </div>
                 <div class="home-image">
                     <img src="Teaching.jpeg" alt="Teaching">
+                </div>
+            </div>
+
+            <div class="goals-section">
+                <h2 class="home-title">Our Goals</h2>
+                <div class="goals-grid">
+                    <div class="goal-card">
+                        <img src="Prisha Talking.jpeg" alt="Goal image">
+                    </div>
+                    <div class="goal-card">
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+                    </div>
+                    <div class="goal-card">
+                        <img src="Prisha Talking 3.jpeg" alt="Goal image">
+                    </div>
                 </div>
             </div>
         </div>
@@ -416,20 +550,31 @@
             <p>Learn about our story and how we got here.</p>
             <div class="journey-list">
                 <div class="journey-item">
-                    <img src="Journey.png" alt="Journey image">
-                </div>
+                    <img src="Journey.jpg" alt="Journey image">
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="contact-footer">
+        <p><strong>Want to bring I CAN to your school?</strong></p>
+        <p>Email us for seminars: <a href="mailto:icanshrewsbury@gmail.com">icanshrewsbury@gmail.com</a></p>
+        <div class="social-links">
+            <p>Follow us on social media:</p>
+            <a href="https://www.instagram.com/ican.shrewsbury/">Instagram</a>
+            <a href="https://www.linkedin.com">LinkedIn</a>
         </div>
     </div>
 
     <script>
         const sidebar = document.getElementById('sidebarNav');
         const sidebarTab = document.querySelector('.sidebar-tab');
+        const content = document.querySelector('.content');
 
         function toggleSidebar() {
             sidebar.classList.toggle('open');
             sidebarTab.classList.toggle('active');
+            content.classList.toggle('sidebar-open');
         }
 
         function showSection(sectionId) {
@@ -443,6 +588,7 @@
             // Close sidebar on mobile after navigation
             sidebar.classList.remove('open');
             sidebarTab.classList.remove('active');
+            content.classList.remove('sidebar-open');
         }
     </script>
 </body>
