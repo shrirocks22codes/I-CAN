@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I CAN</title>
+    <link rel="icon" type="image/jpeg" href="ICAN-Logo.jpg">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
 
@@ -46,7 +47,7 @@
             margin-right: auto;
         }
 
-        #home {
+        #home.active {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -59,6 +60,30 @@
 
         .section.active {
             display: block;
+        }
+
+        .home-tagline {
+            text-align: center;
+            font-size: clamp(0.95rem, 2.5vw, 499rem);
+            color: var(--main-orange);
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 990;
+            white-space: nowrap;
+            padding: 15px 20px;
+            overflow-x: auto;
+            letter-spacing: 0.5px;
+        }
+
+        .ican-main-title {
+            text-align: center;
+            font-size: clamp(4rem, 12vw, 8rem);
+            color: var(--main-orange);
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0px;
+            margin: 0;
+            padding: 0;
+            line-height: 1;
         }
 
         .home-title {
@@ -501,6 +526,8 @@
 
     <div class="content">
         <div id="home" class="section active">
+            <div class="home-tagline">Independance. Confidence. Assertiveness. Necessity to say No.</div>
+            <div class="ican-main-title">I.C.A.N.</div>
             <img src="Prisha and Shrihan.jpeg" alt="Prisha and Shrihan" class="hero-image">
             
             <div class="home-container">
@@ -562,7 +589,7 @@
         <div class="social-links">
             <p>Follow us on social media:</p>
             <a href="https://www.instagram.com/ican.shrewsbury/">Instagram</a>
-            <a href="https://www.linkedin.com">LinkedIn</a>
+            <a href="https://www.linkedin.com/company/i-c-a-n/">LinkedIn</a>
         </div>
     </div>
 
